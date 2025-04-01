@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <div class="left">
+        <div class="container">
+            <h1><i class="fa-solid fa-blog"></i></h1>
+            <div class="home">
+                <i class="fa-solid fa-house"></i>
+                <span style="font-weight: 700;">Home</span>
+            </div>
+            <div class="explore">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <span>Explore</span>
+            </div>
+            <div class="notifications">
+                <i class="fa-solid fa-bell"></i>
+                <span>Notifications</span>
+            </div>
+            <div class="message">
+                <i class="fa-solid fa-envelope"></i>
+                <span>Messages</span>
+            </div>
+            <div class="profile">
+                <i class="fa-solid fa-user"></i>
+                <span>Profile</span>
+            </div>
+            <div class="more">
+                <i class="fa-solid fa-ellipsis"></i>
+                <span>More</span>
+            </div>
+            <form method="GET" action="/new">
+                <button class="post">Post new blog</button>
+            </form>
+        </div>
+
+    </div>
+    <div class="middle">
+        <div class="fixed">
+            <div class="you" style="font-weight: 700;">Blogs</div>
+            <div class="following" style="font-weight: 550; opacity: 0.5;">Trending</div>
+        </div>
+        <div class="happening">
+            <p style="opacity: 0.5;">What's happening ?</p>
+            <button class="btn">Post</button>
+        </div>
+        <div class="customize">
+            <div class="premium-title" style="font-size: 1.75rem;">Customize your view</div>
+            <div class="premium-description">
+                Sometimes you need to freshen things up a bit, like swapping colors, super-sizing your text, or revisiting your dark mode selection, all of which you can do in your settings.
+
+            </div>
+            <button class="subscribe-button" style="background-color: black;">Change view</button>
+        </div>
+        <% for(let post of data){%>
+            <div class="posts">
+                <h2><%= post.title %></h2>
+                <p><%= post.content %></p><br>
+                <div class="inside">
+                    <form method="GET" action="/<%= post.id %>/edit">
+                        <button>Edit Post</button>
+                    </form>
+                    <form method="POST" action="/<%= post.id %>?_method=DELETE">
+                        <button style="background-color: #e0245e;">Delete</button>
+                    </form>
+                </div>
+            </div>
+        <%} %>
+        
+    </div>
+    <div class="right">
+        <div class="premium-section">
+            <div class="premium-title">Subscribe to Premium</div>
+            <div class="premium-description">
+                Subscribe to unlock new features and if eligible, receive a share of revenue.
+            </div>
+            <button class="subscribe-button">Subscribe</button>
+        </div>
+    
+        <div class="contains">
+            
+            <p class="whats-happening-title">What's happening</p>
+        
+            <div class="trending-item">
+                <div class="trending-tag">Khloé in Wonder Land <span class="live-badge">LIVE</span></div>
+            </div>
+        
+            <div class="trending-item">
+                <div class="trending-tag">#AirIndiaExclusives</div>
+                <div class="trending-posts">Grab exclusive bank offers and round-the-clock special fares.</div>
+                <div class="promoted">
+                    <span class="promoted-checkbox">☐</span> Promoted by Air India
+                </div>
+            </div>
+        
+            <div class="trending-item">
+                <div class="trending-category">Topics - Trending</div>
+                <div class="trending-tag">AI-agent</div>
+                <div class="trending-posts">1,190 blogs</div>
+            </div>
+        
+            <div class="trending-item">
+                <div class="trending-category">Trending-#</div>
+                <div class="trending-tag">#CyberHub</div>
+                <div class="trending-posts">15.4K hastags</div>
+            </div>
+        </div>
+    </div>
+    <script src="https://kit.fontawesome.com/6858b439b0.js" crossorigin="anonymous"></script>
+</body>
+</html>
